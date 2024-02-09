@@ -13,14 +13,12 @@ class GameSrvc {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Create a new game
     public function addGame(Game $game) {
         $title = $game->getTitle();
         $publisher = $game->getPublisher();
         $rating = $game->getRating();
         $numberOfPlayers = $game->getPlayers();
 
-        // Perform database insertion
         $query = "INSERT INTO games (title, publisher, rating, players) VALUES (:title, :publisher, :rating, :numberOfPlayers)";
         $params = array(
             ':title' => $title,
@@ -32,7 +30,7 @@ class GameSrvc {
     }
 
     public function updateGame(Game $game) {
-        $id = $game->getId(); // Assuming you have an ID field in your Game model
+        $id = $game->getId();
         $title = $game->getTitle();
         $publisher = $game->getPublisher();
         $rating = $game->getRating();

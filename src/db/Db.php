@@ -21,7 +21,6 @@ class Db
 
         try {
             $this->pdo = new PDO($dsn);
-            // Set PDO attributes if needed (e.g., error mode, fetch mode)
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
@@ -39,8 +38,6 @@ class Db
             return false;
         }
     }
-
-    // Additional methods for common database operations (e.g., insert, update, delete)
 
     public function close()
     {
